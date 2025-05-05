@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\usepackage[a4paper, total={6in, 9.333in}]{geometry}
+
+
+
+
+\author{}
+\date{}
+
+\begin{document}
+
+
+\section{Constructing equations of intersection between circle and curves}
+\noindent We define: 
+\begin{align*}
+\tag{1}y_1 &= x^2 \implies y_1^2 = x^4 \\
+\tag{2}y_2 &= x^2-\frac{1}{2} \implies y_2^2=x^4-x^2+\frac{1}{4}
+\end{align*}
+\noindent Given that the circle has coordinate $y=0$ at its centre, we can write its equation as: 
+\begin{equation}\tag{3}y^2=r^2-(x-a)^2 \end{equation}
+where $a$ is the $x$-coordinate of the centre. The $x$-coordinate of the point of intersection between each curve $y_1,y_2$ and the circle is found by equating $y_1^2$ and $y_2^2$ in (1) and (2), respectively, each with $y^2$ in (3) and finding the roots of the resultant associated quartic polynomials:
+\begin{equation}
+\tag{4}P_1(x)=x^4+x^2-2ax+\big(a^2-r^2\big)    
+\end{equation}
+\begin{equation}
+\tag{5}P_2(x)=x^4-2ax+\bigg(a^2-r^2+\frac{1}{4}\bigg)    
+\end{equation}
+We define the real root of each polynomial which also represents the $x$-coordinate of the point of intersection between the associated curve and the circle as $x_1$ and $x_2$, respectively. Because each curve intersects the circle only once, $x_1$ and $x_2$ can each only be either (i) real double roots or (ii) real quadruple roots. This is because of the complex conjugate root theorem which states that if a polynomial with real coefficients has a complex root, then its complex conjugate must also be a root. If we assume case (ii) for each polynomial, then we can factor thus for $i=1,2$:
+\begin{equation}
+    \tag{6}P_i(x)=(x-x_i)^4=x^4-4x_ix^3+6x_i^2x^2-4x_i^3x+x_i^4
+\end{equation}
+However, upon comparing coefficients in (6) with those in (4) and (5) we see that this this is not possible as case (ii) thus implies that $x_i=0$. Therefore, $x_1$ and $x_2$ must be real double roots, and the remaining two roots of each polynomial must be complex conjugates by the complex conjugate root theorem. That is to say, for some real numbers $\alpha,\beta,\gamma,\delta$ we have that:
+\begin{align*}
+\tag{7}P_1(x) &= (x-x_1)^2\big[x-(\alpha + \beta i)\big]\big[x-(\alpha-\beta i)\big] \\
+\tag{8}P_2(x) &= (x-x_2)^2\big[x-(\gamma + \delta i)\big]\big[x-(\gamma-\delta i)\big] 
+\end{align*}
+Expanding both polynomials gives:
+\begin{align*}
+\tag{9}P_1(x) &= x^4 - 2(\alpha + x_1)x^3 + \big(\alpha^2 + \beta^2 + 4\alpha x_1 + x_1^2\big)x^2- 2x_1(\alpha^2 + \beta^2 + \alpha x_1)x + \big(\alpha^2 + \beta^2\big)x_1^2 \\
+\tag{10}P_2(x) &= x^4 - 2(\gamma + x_2)x^3 + \big(\gamma^2 + \delta^2 + 4\gamma x_2 + x_2^2\big)x^2 - 2x_2(\gamma^2 + \delta^2 + \gamma x_2)x + \big(\gamma^2 + \delta^2\big)x_2^2
+\end{align*}
+\section{Determining $\{a(x_1),a(x_2)\}$ and $\{r^2(x_1),r^2(x_2)\}$}
+We aim to determine the centre $a$ and $r^2$ both in terms of $x_1$ and $x_2$ independently. The idea is that this will set up a system of two equations each relating $x_1$ and $x_2$ together from which a quartic polynomial entirely in terms of $x_1^2$ can be constructed and solved to subsequently determine $r$.  
+\newline\newline
+Comparing coefficients of (4) with (9) and applying any determined values for $\alpha,\beta,a$ in terms of $x_1$ yields:
+\begin{align*}
+x^3\!:\!&\quad \alpha = -x_1 \\
+x^2\!:\!&\quad \beta^2 = 1 + 2x_1^2 \\
+x^1\!:\!&\quad a = x_1\big(1 + 2x_1^2\big) \\
+x^0\!:\!&\quad r^2=4x_1^6+x_1^4
+\end{align*}
+\noindent Likewise, comparing the coefficients of (5) with (10) yields:
+\begin{align*}
+x^3\!:\!&\quad \gamma =-x_2 \\
+x^2\!:\!&\quad \delta^2=2x_2^2 \\
+x^1\!:\!&\quad a = 2x_2^3 \\
+x^0\!:\!&\quad r^2=4x_2^6-3x_2^4+\frac{1}{4}
+\end{align*}
+We thus have altogether:
+\begin{align*}
+    \tag{11} &a(x_1) =x_1\big(1+2x_1^2\big) \\
+    \tag{12} &a(x_2) = 2x_2^3 \\
+    \tag{13} &r^2(x_1)=4x_1^6+x_1^4 \\
+    \tag{14}&r^2(x_2)=4x_2^6-3x_2^4+\frac{1}{4}
+\end{align*}
+\section{Constructing the quartic for $x_1^2$}
+We equate together our two terms for $a$ in (11) and (12) and $r^2$ in (13) and (14) to obtain the system of equations in $x_1$ and $x_2$:
+\begin{align*}
+    \tag{15} &2x_2^3=x_1\big(1+2x_1^2\big) \\
+    \tag{16} & 4x_1^6+x_1^4=4x_2^6-3x_2^4+\frac{1}{4}
+\end{align*}
+By substituting (15) into (16) and rearranging, the $x_1^6$ terms conveniently cancel and one finally obtains an equation entirely in terms of $x_1$:
+\begin{equation}
+    \tag{17} 12x_1^4+4x_1^2+1=3\cdot 2^\frac{2}{3}\Big[x_1\big(1+2x_1^2\big)\Big]^\frac{4}{3}
+\end{equation}
+\noindent Raising both sides to the power of three, tediously expanding both sides and substituting in $u=x_1^2$ gives us:
+\begin{equation}
+    \tag{18} P(u)=1728u^5+1584u^4+512u^3+24u^2-12u-1=0
+\end{equation}
+While at first this seems impossible to solve analytically, we can make an attempt by first trying to find any rational roots using the rational root theorem which states that for a polynomial with integer coefficients and non-zero constant term, any rational root of the form $\frac{p}{q}$ written in lowest terms ($p$ and $q$ are relatively prime) must satisfy the conditions:
+\newline\newline
+\indent (i) \space $p$ is an integer factor of the constant term;
+\newline
+\indent (ii) $q$ is an integer factor of the leading coefficient. 
+\newline\newline
+As such, if a rational root $u=\frac{p}{q}$ in (18) exists, then we must have that:
+\newline\newline
+\indent (i) \space $p=\pm1$;
+\newline
+\indent (ii) $q$ is an integer factor of 1728. 
+\newline\newline
+Since $p=\pm1$, any rational root in (18) will be a positive or negative reciprocal of one of the 28 positive integer factors of 1728. Having checked whether (18) holds for all 56 potential rational root candidates, one can verify that the only rational value for which the equation holds is $u=-\frac{1}{4}$, which implies that $(4u+1)$ is a factor of $P(u)$. Performing a polynomial long division, one can thus rewrite:
+\begin{equation*}
+    \tag{19} P(u)=(4u+1)(432u^4+288u^3+56u^2-8u-1)=0
+\end{equation*}
+However, we know that $u=-\frac{1}{4}$ is not a real solution in the original Cartesian plane as this implies that $x_1=\pm\frac{i}{2}$. Therefore, the real value $x_1$ must be obtained from the following quartic equation:
+\begin{equation}
+    \tag{20} 432u^4+288u^3+56u^2-8u-1=0
+\end{equation}
+\section{Solving the quartic}
+We divide by 432 to rewrite (20) as:
+\begin{equation}
+    \tag{21}u^4+\frac{2}{3}u^3+\frac{7}{54}u^2-\frac{1}{54}u-\frac{1}{432}=0
+\end{equation}
+\noindent For a quartic polynomial $y=u^4 + au^3+bu^2+cu+d$, the four roots $u_i$ can be succinctly expressed by the following formula for $i=1,2,3,4$:
+\newline
+\begin{equation}
+  \tag{22}  u_i=\frac{(-1)^{\big\lfloor \frac{i+1}{2} \big\rfloor}}{2}\sqrt{2A-B+\frac{(-1)^iC}{4D}}+\frac{(-1)^iD}{2}+E
+\end{equation}
+\noindent where: 
+\begin{align*}
+    &A = \frac{a^2}{4} - \frac{2b}{3} \\
+    &B = \frac{2^{\frac{1}{3}}\alpha + \beta^2}{3 \cdot 2^{\frac{1}{3}} \beta}, \quad
+    \left\{
+    \begin{aligned}
+        \alpha &= 2^{\frac{1}{3}}(b^2 - 3ac + 12d) \\
+        \beta &= \left(\gamma + \sqrt{\gamma^2 - 2\alpha^3}\right)^{\frac{1}{3}} \\
+        \gamma &= 2b^3 - 9abc + 27c^2 + 27a^2d - 72bd
+    \end{aligned}
+    \right. \\
+    &C = -a^3 + 4ab - 8c \\
+    &D = \sqrt{A + B} \\
+    &E = -\frac{a}{4}
+\end{align*}
+\noindent Substituting our coefficients from (21) into these latter equations and simplifying gives: 
+\begin{equation*}
+\tag{23} A = \frac{2}{81}, \quad B = \frac{10}{81}, \quad C = \frac{16}{81}, \quad D = \frac{2\sqrt{3}}{9}, \quad E = -\frac{1}{6}
+\end{equation*}
+\noindent Substituting these values into (22) gives us the four solutions of (21):
+\begin{equation}
+  \tag{24}  u_i=\frac{(-1)^{\big\lfloor \frac{i+1}{2} \big\rfloor}}{2}\sqrt{\frac{2\sqrt{3}(-1)^i}{27}-\frac{2}{27}}+\frac{\sqrt{3}(-1)^i}{9}-\frac{1}{6}
+\end{equation}
+Now, since $x_1=\sqrt{u}$ (and the square root of a complex number is complex), the only solution $u_i$ to (21) for which $x_1$ is real occurs when $u_i$ is positive (and real). Upon computing these solutions in (24) for $i=1,2,3,4$, one determines that the only such $u_i$ occurs when $i=4$ to yield:
+\begin{equation*}
+    \tag{25} u_4=\frac{1}{2}\sqrt{\frac{2\sqrt{3}-2}{27}}+\frac{\sqrt{3}}{9}-\frac{1}{6}=\frac{1}{2}\cdot\frac{\sqrt{6}}{9}\sqrt{\sqrt{3}-1}+\frac{2\sqrt{3}-3}{18}= \frac{1}{18}\bigg[2\sqrt{3}-3+\sqrt{6\big(\sqrt{3}-1\big)}\bigg]
+\end{equation*}
+From here, the $x$-coordinate for the point of intersection between $y_1=x^2$ and the circle is thus $x_1=\sqrt{u_4}$ (the other solution $x_1=-\sqrt{u_4}$ represents the same circle reflected across the $y$-axis). However, only the expression for $x_1^2=u_4$ given here is required to find the radius $r$.
+\section{Finding the radius}
+We substitute $u_4=x_1^2$ into (13) to obtain:
+\begin{equation}
+    \tag{26} r= u_4\sqrt{4u_4+1}
+\end{equation}
+Regarding this second term, one can easily work out:
+\begin{equation*}
+    \tag{27} \sqrt{4u_4+1}=\frac{1}{3}\sqrt{3+4\sqrt{3}+2\sqrt{6\big(\sqrt{3}-1\big)}}
+\end{equation*}
+Substituting (25) and (27) into (26), one finally obtains that the exact value for the radius of the circle whose centre lies on the $x$-axis and which is tangent to the curves $y_1=x^2$ and $y_2=x^2-\frac{1}{2}$ is:
+\begin{equation*}
+    \tag{28} r=\frac{1}{54}\bigg[2\sqrt3-3+\sqrt{6\big(\sqrt{3}-1\big)}\bigg]\sqrt{3+4\sqrt{3}+2\sqrt{6\big(\sqrt{3}-1\big)}}
+\end{equation*}
+
+\end{document}
